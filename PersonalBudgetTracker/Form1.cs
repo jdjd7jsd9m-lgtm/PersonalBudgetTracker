@@ -30,7 +30,7 @@ if (!decimal.TryParse(txtAmount.Text, out decimal amount))
                 return;
             }
 Transaction t = new Transaction();
-            t.Description = txtAmount.Text;
+            t.Description = txtDescription.Text;
             t.Amount = amount;
             t.Type = cmbType.Text;
             lstTransactions.Items.Add(
@@ -42,7 +42,7 @@ Transaction t = new Transaction();
             }
             else if (t.Type == "Expense")
             {
-                balance += t.Amount;
+                balance -= t.Amount;
             }
             lblBalance.Text = "Balance:$" + balance;
         }
